@@ -17,7 +17,6 @@ const expireDateInputField = document.querySelector(".expire-date-input-field")
 
 badgeInput.addEventListener("submit", (e)=> {
     e.preventDefault()
-    console.log("hi")
     let badgeInputResponses = ["Badge number captured by the Canine Intelligence Agency","Gonna steal your identity, and then steal your girl"]
     console.log(badgeInput.value)
     badgeInputContainer.textContent = badgeInputField.value
@@ -41,7 +40,18 @@ expireDateInput.addEventListener("submit", ()=> {
 })
 
 innerInput.addEventListener("submit", ()=> {
+    let innerInputResponses = ["Those are rookie numbers","Imma be honest, I'll lose track of your scans halfway through","You can't leave until this is done"]
     innerContainer.textContent = innerInputField.value
+    if(innerContainer.textContent < 40){
+        response.textContent = innerInputResponses[0]
+    }
+    else if(innerContainer.textContent >= 40 && innerContainer.textContent <= 60){
+        response.textContent = innerInputResponses[1]
+    }
+    else {
+        response.textContent = innerInputResponses[2]
+    }
+    
 })
 
 
@@ -51,9 +61,15 @@ labelInput.addEventListener("submit", (e) => {
     let failureResponses = ["Failure: Wrong Box. I was a better final boxer and I'm a dog.", "Wrong box. One trillion dogecoin, Social security number, or credit card info required to unlock computer"]
     let jobArray = Array.from(discreteJobContainer.textContent)
     let labelArray = Array.from(labelInputField.value)
-    console.log(labelInputField.value)
-    if (jobArray[jobArray.length - 1] + (10 * jobArray[jobArray.length - 2]) + (100 * jobArray[jobArray.length - 3]) === labelArray[labelArray.length - 1] + (10 * labelArray[labelArray.length - 2]) + (100 * labelArray[labelArray.length - 3])) {
-        response.textContent = labelInputResponses[Math.floor(Math.random()*4)]
+    console.log(discreteJobContainer.textContent)
+    console.log(jobArray)
+    console.log(labelArray)
+
+    if (labelInputField.value === "DON"){
+        response.textContent = "You didn't think I was actually counting your scans did you?"
+    }
+    else if (jobArray[jobArray.length - 1] + (10 * jobArray[jobArray.length - 2]) + (100 * jobArray[jobArray.length - 3]) === labelArray[labelArray.length - 1] + (10 * labelArray[labelArray.length - 2]) + (100 * labelArray[labelArray.length - 3])) {
+        response.textContent = labelInputResponses[Math.floor(Math.random()*5)]
     }
     else {
         response.textContent = failureResponses[Math.floor(Math.random()*2)]

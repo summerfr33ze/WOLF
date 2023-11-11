@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Comic Sans";
+    src: url(fonts/comic.TTF)
+}
+
+.header {
+    font-family: "Comic Sans";
+    background-color: rgb(69, 65, 65);
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.wow {
+    color:aqua;
+}
+
+.very-box {
+    color:#FF1493;
+}
+
+.much-smart {
+    color: #ADFF2F;
+}
