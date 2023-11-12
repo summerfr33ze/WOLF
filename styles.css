@@ -22,3 +22,16 @@
 .much-smart {
     color: #ADFF2F;
 }
+
+.footer {
+    position: absolute;
+    height: 8vh;
+    width: 100vw;
+    font-size: 5vh;
+    bottom: 0;
+    background-color: black;
+    font-family: 'Comic Sans';
+    color: limegreen;
+    text-align: center;
+
+}
