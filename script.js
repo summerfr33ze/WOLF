@@ -14,17 +14,19 @@ const badgeInputField = document.querySelector(".badge-input-field")
 const discreteJobInputField = document.querySelector(".discrete-job-input-field")
 const innerInputField = document.querySelector(".inner-input-field")
 const expireDateInputField = document.querySelector(".expire-date-input-field")
+const rightAudio = document.querySelectorAll(".right-audio")
+const wrongAudio = document.querySelectorAll(".wrong-audio")
 
 badgeInput.addEventListener("submit", (e)=> {
     e.preventDefault()
     let badgeInputResponses = ["Badge number captured by the Canine Intelligence Agency","Gonna steal your identity, and then steal your girl"]
-    console.log(badgeInput.value)
+    
     badgeInputContainer.textContent = badgeInputField.value
     if (Math.random() > .5){
         response.textContent = badgeInputResponses[0]
     }
     else (response.textContent = badgeInputResponses[1])
-    console.log(badgeInputContainer.textContent, response.textContent)
+    
 })
 
 
@@ -61,17 +63,20 @@ labelInput.addEventListener("submit", (e) => {
     let failureResponses = ["Failure: Wrong Box. I was a better final boxer and I'm a dog.", "Wrong box. One trillion dogecoin, Social security number, or credit card info required to unlock computer"]
     let jobArray = Array.from(discreteJobContainer.textContent)
     let labelArray = Array.from(labelInputField.value)
-    console.log(discreteJobContainer.textContent)
-    console.log(jobArray)
-    console.log(labelArray)
-
+   
     if (labelInputField.value === "DON"){
         response.textContent = "You didn't think I was actually counting your scans did you?"
+        wrongAudio[0].play()
     }
     else if (jobArray[jobArray.length - 1] + (10 * jobArray[jobArray.length - 2]) + (100 * jobArray[jobArray.length - 3]) === labelArray[labelArray.length - 1] + (10 * labelArray[labelArray.length - 2]) + (100 * labelArray[labelArray.length - 3])) {
         response.textContent = labelInputResponses[Math.floor(Math.random()*5)]
+        rightAudio[Math.floor(Math.random() * 3)].play()
+
+        console.log(rightAudio)
+        
     }
     else {
         response.textContent = failureResponses[Math.floor(Math.random()*2)]
+        wrongAudio[Math.floor(Math.random() * 2)].play()
     }
 })
