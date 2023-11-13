@@ -37,6 +37,6 @@
 
 }
 
-a {
+a, a:visited {
     color: #ADFF2F;
 }
